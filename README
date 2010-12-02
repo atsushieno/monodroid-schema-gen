@@ -1,0 +1,51 @@
+= What is this? =
+
+monodroid-schema-gen is an Android layout.xml schema generator.
+
+WARNING: Android layout xml does not fit well with XML schema restrictions.
+XML Schema is not extensible enough to accept non-standard components nor
+non-standard attributes which are (still) in android XML namespace (due to
+the limitation of element/attribute wildcards). So, you CANNOT use the
+resulting schema to VALIDATE your layout xml resources.
+It should be used only for auto-complete element/attribute candidates.
+
+It consists of three separate tools.
+
+- type-hierarchy-importer.exe fetches android documentation for
+  android.view.View (i.e. View.html), parses the documents for all known
+  indirect subclasses of View as well as View itself, and outputs java-based
+  type hierarchy definitions.
+  It generates type-hierarchy.xml.
+
+- gen-android-r-styleable.exe fetches android documentation for
+  android.R.styleable, which is in fact deprecated and does not exist in
+  android.jar (thus nor Mono.Android.dll), parses the document for all known
+  attributes in android namespace, and outputs the attributes list.
+  It generates all-known-attributes.xml.
+
+- monodroid-schema-gen.exe parses Mono.Android.dll and all-known-attributes.xml
+  to generate schemas which reside in each namespace.
+
+
+= Usage =
+
+run below:
+
+	make MONO_ANDROID_DLL=/path/to/Mono.Android.dll
+
+which should take all care.
+This takes for a while, as attribute-doc-importer.exe retrieves ALL relevant
+HTML documentation webpages from developer.android.com.
+
+It will generate two schema files:
+
+	- android-layout-xml.xsd
+	- schemas.android.com.apk.res.android.xsd
+
+That's all. Note that both are required to auto-complete layout.xml nodes.
+
+= External Tool =
+
+It uses SgmlReader: http://code.msdn.microsoft.com/SgmlReader.
+
+Atsushi Eno
