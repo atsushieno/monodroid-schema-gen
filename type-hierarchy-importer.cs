@@ -28,9 +28,8 @@ public class Driver
 
 			ProcessDocument (baseUrl);
 
-			foreach (XmlNode div in  doc.SelectNodes ("//div[@id='subclasses-indirect-list' or @id='subclasses-direct-list']")) {
-				var links = div.SelectNodes ("a[@href]");
-				foreach (XmlElement link in links) {
+			foreach (XmlElement node in doc.SelectNodes ("//div[@id='subclasses-direct' or @id='subclasses-indirect']")) {
+				foreach (XmlElement link in node.SelectNodes ("div/table[@class='jd-sumtable-expando']/tr/td[@class='jd-linkcol']/a[@href]")) {
 					if (link.PreviousSibling != null && link.PreviousSibling.Value.Contains ("extends"))
 						continue; // it is a link to generic type argument.
 					var durl = resolver.ResolveUri (baseUrl, link.GetAttribute ("href"));
@@ -63,6 +62,7 @@ public class Driver
 		var xr = new SgmlReader () { InputStream = sr };
 		var doc = new XmlDocument ();
 		doc.Load (xr);
+		sr.Close ();
 		xr.Close ();
 		return doc;
 	}

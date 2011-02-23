@@ -54,6 +54,19 @@ public class Driver
 		using (var tw = File.CreateText ("all-known-attributes.xml"))
 			tw.Write (sw.ToString ());
 
+
+		var enumerations = new Dictionary<string,EnumeratedValues> ();
+		doc.Load ("layout_schema_enumerations.xml");
+		foreach (XmlElement att in doc.SelectNodes ("/enumerated-values/attr")) {
+			string name = att.GetAttribute ("name");
+			var vl = new EnumeratedValues () {
+				AsCandidate = att.GetAttribute ("else") == "allowed",
+				AsFlag = att.GetAttribute ("flags") == "true" };
+			foreach (XmlElement v in att.SelectNodes ("value"))
+				vl.Add (v.InnerText);
+			enumerations [name] = vl;
+		}
+
 		using (var tw = File.CreateText ("schemas.android.com.apk.res.android.xsd")) {
 			tw.WriteLine (@"
 <xs:schema
@@ -61,10 +74,35 @@ public class Driver
   targetNamespace='" + android_ns + @"'
   xmlns:android='" + android_ns + @"'>
 ");
-			foreach (var a in atts)
-				tw.WriteLine ("<xs:attribute name='{0}' type='xs:string' />", a.Substring (a.IndexOf (':') + 1));
+			foreach (var a in atts) {
+				var name = a.Substring (a.IndexOf (':') + 1);
+				if (enumerations.ContainsKey (name))
+					GenerateAttribute (tw, name, enumerations [name]);
+				else
+					tw.WriteLine ("<xs:attribute name='{0}' type='xs:string' />", name);
+			}
 			tw.WriteLine ("</xs:schema>");
 		}
+	}
+	
+	static void GenerateAttribute (TextWriter tw, string name, EnumeratedValues vl)
+	{
+		string wrapperStart = null, wrapperEnd = null;
+		if (vl.AsCandidate || vl.AsFlag) {
+			wrapperStart = "<xs:simpleType><xs:union memberTypes='xs:string'>";
+			wrapperEnd = "</xs:union></xs:simpleType>";
+		}
+
+		tw.WriteLine (@"<xs:attribute name='{0}'>
+  {1}
+    <xs:simpleType>
+      <xs:restriction base='xs:NMTOKEN'>", name, wrapperStart);
+		foreach (var v in vl)
+			tw.WriteLine ("        <xs:enumeration value='{0}' />", v);
+		tw.WriteLine (@"      </xs:restriction>
+    </xs:simpleType>
+  {0}
+</xs:attribute>", wrapperEnd);
 	}
 	
 	static XmlNode NextElement (XmlNode n)
@@ -89,6 +127,12 @@ public class Driver
 			xw.Flush ();
 		} while (xr.Read ());
 		xw.Close ();
+	}
+
+	class EnumeratedValues : List<string>
+	{
+		public bool AsCandidate { get; set; }
+		public bool AsFlag { get; set; }
 	}
 }
 

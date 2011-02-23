@@ -102,6 +102,7 @@ namespace Commons.AndroidSchemaGen
 				if (IsDirectViewManagerImplementor (type) && !IsDirectViewManagerImplementor (type.BaseType))
 					xsce.Particle = new XmlSchemaGroupRef () { RefName = new XmlQualifiedName ("any-view"), MinOccurs = 0, MaxOccursString = "unbounded" };
 			}
+
 			using (var xw = XmlWriter.Create ("android-layout-xml.xsd", new XmlWriterSettings { Indent = true }))
 				xs.Write (xw);
 		}
