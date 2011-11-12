@@ -18,13 +18,13 @@ public class Driver
 
 		doc.Load ("R.styleable.xml");
 		var content = doc.SelectSingleNode ("/html/body//div[@id='jd-content']");
-		var consts = content.SelectSingleNode ("//table[@id='constants']");
+		var consts = content.SelectSingleNode ("//table[@id='lfields']"); // wow, the documentation layout has changed.
 		var atts = new List<string> ();
 		var sw = new StringWriter ();
 		sw.WriteLine ("<android-attribute-defs xmlns:android='http://schemas.android.com/apk/res/android'>");
 		foreach (XmlNode tr in consts.SelectNodes ("tr")) {
 			var td0 = tr.SelectSingleNode ("td[1]");
-			if (td0 == null || td0.InnerText.Trim () != "int[]")
+			if (td0 == null || td0.InnerText.Trim ().Replace (" ", "") == "publicstaticfinalint[]")
 				continue;
 			XmlNode xn = tr.SelectSingleNode ("td[@class='jd-linkcol']/a/text()");
 			var name = xn.Value.Trim ();
@@ -35,7 +35,7 @@ public class Driver
 			if (((XmlElement) n).GetAttribute ("class") != "jd-details api apilevel-")
 				throw new Exception ("huh? " + n.LocalName);
 
-			n = n.SelectSingleNode ("div[@class='jd-details-descr']/div//table"); // -> table of Attribute/Description
+			n = n.SelectSingleNode ("div[@class='jd-details-descr']//div[1]//table"); // -> table of Attribute/Description
 			if (n == null)
 				Console.Error.WriteLine ("Empty table: " + name);
 			else {

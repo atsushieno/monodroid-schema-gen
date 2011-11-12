@@ -5,14 +5,19 @@
     <xs:choice>
       <xs:element ref="GLSurfaceView" />
       <xs:element ref="AdapterView" />
+      <xs:element ref="AdapterViewAnimator" />
       <xs:element ref="AutoCompleteTextView" />
       <xs:element ref="MediaController" />
       <xs:element ref="TextView" />
+      <xs:element ref="FragmentBreadCrumbs" />
       <xs:element ref="AppWidgetHostView" />
       <xs:element ref="GestureOverlayView" />
       <xs:element ref="ExtractEditText" />
       <xs:element ref="KeyboardView" />
+      <xs:element ref="RSSurfaceView" />
+      <xs:element ref="RSTextureView" />
       <xs:element ref="SurfaceView" />
+      <xs:element ref="TextureView" />
       <xs:element ref="ViewGroup" />
       <xs:element ref="ViewStub" />
       <xs:element ref="WebView" />
@@ -20,8 +25,10 @@
       <xs:element ref="AbsSeekBar" />
       <xs:element ref="AbsSpinner" />
       <xs:element ref="AbsoluteLayout" />
+      <xs:element ref="AdapterViewFlipper" />
       <xs:element ref="AnalogClock" />
       <xs:element ref="Button" />
+      <xs:element ref="CalendarView" />
       <xs:element ref="CheckBox" />
       <xs:element ref="CheckedTextView" />
       <xs:element ref="Chronometer" />
@@ -33,6 +40,7 @@
       <xs:element ref="ExpandableListView" />
       <xs:element ref="FrameLayout" />
       <xs:element ref="Gallery" />
+      <xs:element ref="GridLayout" />
       <xs:element ref="GridView" />
       <xs:element ref="HorizontalScrollView" />
       <xs:element ref="ImageButton" />
@@ -41,6 +49,7 @@
       <xs:element ref="LinearLayout" />
       <xs:element ref="ListView" />
       <xs:element ref="MultiAutoCompleteTextView" />
+      <xs:element ref="NumberPicker" />
       <xs:element ref="ProgressBar" />
       <xs:element ref="QuickContactBadge" />
       <xs:element ref="RadioButton" />
@@ -48,9 +57,13 @@
       <xs:element ref="RatingBar" />
       <xs:element ref="RelativeLayout" />
       <xs:element ref="ScrollView" />
+      <xs:element ref="SearchView" />
       <xs:element ref="SeekBar" />
       <xs:element ref="SlidingDrawer" />
+      <xs:element ref="Space" />
       <xs:element ref="Spinner" />
+      <xs:element ref="StackView" />
+      <xs:element ref="Switch" />
       <xs:element ref="TabHost" />
       <xs:element ref="TabWidget" />
       <xs:element ref="TableLayout" />
@@ -72,6 +85,17 @@
     <xs:attribute ref="android:layout_x" />
     <xs:attribute ref="android:layout_y" />
     <xs:attribute ref="android:layout_gravity" />
+    <xs:attribute ref="android:layout_column" />
+    <xs:attribute ref="android:layout_columnSpan" />
+    <xs:attribute ref="android:layout_row" />
+    <xs:attribute ref="android:layout_rowSpan" />
+    <xs:attribute ref="android:icon" />
+    <xs:attribute ref="android:imeSubtypeExtraValue" />
+    <xs:attribute ref="android:imeSubtypeLocale" />
+    <xs:attribute ref="android:imeSubtypeMode" />
+    <xs:attribute ref="android:isAuxiliary" />
+    <xs:attribute ref="android:label" />
+    <xs:attribute ref="android:overridesImplicitlyEnabledSubtype" />
     <xs:attribute ref="android:codes" />
     <xs:attribute ref="android:iconPreview" />
     <xs:attribute ref="android:isModifier" />
@@ -105,9 +129,11 @@
     <xs:attribute ref="android:layout_centerVertical" />
     <xs:attribute ref="android:layout_toLeftOf" />
     <xs:attribute ref="android:layout_toRightOf" />
-    <xs:attribute ref="android:layout_column" />
+    <xs:attribute ref="android:subtypeExtraValue" />
+    <xs:attribute ref="android:subtypeLocale" />
     <xs:attribute ref="android:layout_span" />
     <xs:attribute ref="android:layout_scale" />
+    <xs:attribute ref="android:alpha" />
     <xs:attribute ref="android:background" />
     <xs:attribute ref="android:clickable" />
     <xs:attribute ref="android:contentDescription" />
@@ -116,6 +142,7 @@
     <xs:attribute ref="android:fadeScrollbars" />
     <xs:attribute ref="android:fadingEdge" />
     <xs:attribute ref="android:fadingEdgeLength" />
+    <xs:attribute ref="android:filterTouchesWhenObscured" />
     <xs:attribute ref="android:fitsSystemWindows" />
     <xs:attribute ref="android:focusable" />
     <xs:attribute ref="android:focusableInTouchMode" />
@@ -123,20 +150,29 @@
     <xs:attribute ref="android:id" />
     <xs:attribute ref="android:isScrollContainer" />
     <xs:attribute ref="android:keepScreenOn" />
+    <xs:attribute ref="android:layerType" />
     <xs:attribute ref="android:longClickable" />
     <xs:attribute ref="android:minHeight" />
     <xs:attribute ref="android:minWidth" />
     <xs:attribute ref="android:nextFocusDown" />
+    <xs:attribute ref="android:nextFocusForward" />
     <xs:attribute ref="android:nextFocusLeft" />
     <xs:attribute ref="android:nextFocusRight" />
     <xs:attribute ref="android:nextFocusUp" />
     <xs:attribute ref="android:onClick" />
+    <xs:attribute ref="android:overScrollMode" />
     <xs:attribute ref="android:padding" />
     <xs:attribute ref="android:paddingBottom" />
     <xs:attribute ref="android:paddingLeft" />
     <xs:attribute ref="android:paddingRight" />
     <xs:attribute ref="android:paddingTop" />
+    <xs:attribute ref="android:requiresFadingEdge" />
+    <xs:attribute ref="android:rotation" />
+    <xs:attribute ref="android:rotationX" />
+    <xs:attribute ref="android:rotationY" />
     <xs:attribute ref="android:saveEnabled" />
+    <xs:attribute ref="android:scaleX" />
+    <xs:attribute ref="android:scaleY" />
     <xs:attribute ref="android:scrollX" />
     <xs:attribute ref="android:scrollY" />
     <xs:attribute ref="android:scrollbarAlwaysDrawHorizontalTrack" />
@@ -152,6 +188,11 @@
     <xs:attribute ref="android:scrollbars" />
     <xs:attribute ref="android:soundEffectsEnabled" />
     <xs:attribute ref="android:tag" />
+    <xs:attribute ref="android:transformPivotX" />
+    <xs:attribute ref="android:transformPivotY" />
+    <xs:attribute ref="android:translationX" />
+    <xs:attribute ref="android:translationY" />
+    <xs:attribute ref="android:verticalScrollbarPosition" />
     <xs:attribute ref="android:visibility" />
     <xs:attribute ref="android:layout_margin" />
     <xs:attribute ref="android:layout_marginBottom" />
@@ -177,6 +218,21 @@
   <xs:complexType name="AdapterView">
     <xs:complexContent mixed="false">
       <xs:extension base="ViewGroup" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdapterViewAnimator" type="AdapterViewAnimator">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.AdapterViewAnimator</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AdapterViewAnimator">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AdapterView">
+        <xs:attribute ref="android:animateFirstView" />
+        <xs:attribute ref="android:inAnimation" />
+        <xs:attribute ref="android:loopViews" />
+        <xs:attribute ref="android:outAnimation" />
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AutoCompleteTextView" type="AutoCompleteTextView">
@@ -225,9 +281,11 @@
         <xs:attribute ref="android:cursorVisible" />
         <xs:attribute ref="android:digits" />
         <xs:attribute ref="android:drawableBottom" />
+        <xs:attribute ref="android:drawableEnd" />
         <xs:attribute ref="android:drawableLeft" />
         <xs:attribute ref="android:drawablePadding" />
         <xs:attribute ref="android:drawableRight" />
+        <xs:attribute ref="android:drawableStart" />
         <xs:attribute ref="android:drawableTop" />
         <xs:attribute ref="android:editable" />
         <xs:attribute ref="android:editorExtras" />
@@ -270,17 +328,38 @@
         <xs:attribute ref="android:shadowRadius" />
         <xs:attribute ref="android:singleLine" />
         <xs:attribute ref="android:text" />
+        <xs:attribute ref="android:textAllCaps" />
         <xs:attribute ref="android:textAppearance" />
         <xs:attribute ref="android:textColor" />
         <xs:attribute ref="android:textColorHighlight" />
         <xs:attribute ref="android:textColorHint" />
         <xs:attribute ref="android:textColorLink" />
+        <xs:attribute ref="android:textCursorDrawable" />
+        <xs:attribute ref="android:textEditNoPasteWindowLayout" />
+        <xs:attribute ref="android:textEditPasteWindowLayout" />
+        <xs:attribute ref="android:textEditSideNoPasteWindowLayout" />
+        <xs:attribute ref="android:textEditSidePasteWindowLayout" />
+        <xs:attribute ref="android:textEditSuggestionItemLayout" />
+        <xs:attribute ref="android:textIsSelectable" />
         <xs:attribute ref="android:textScaleX" />
+        <xs:attribute ref="android:textSelectHandle" />
+        <xs:attribute ref="android:textSelectHandleLeft" />
+        <xs:attribute ref="android:textSelectHandleRight" />
         <xs:attribute ref="android:textSize" />
         <xs:attribute ref="android:textStyle" />
         <xs:attribute ref="android:typeface" />
         <xs:attribute ref="android:width" />
       </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FragmentBreadCrumbs" type="FragmentBreadCrumbs">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.App.FragmentBreadCrumbs</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="FragmentBreadCrumbs">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ViewGroup" />
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AppWidgetHostView" type="AppWidgetHostView">
@@ -348,12 +427,42 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="RSSurfaceView" type="RSSurfaceView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Renderscripts.RSSurfaceView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RSSurfaceView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SurfaceView" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RSTextureView" type="RSTextureView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Renderscripts.RSTextureView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RSTextureView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="TextureView" />
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="SurfaceView" type="SurfaceView">
     <xs:annotation>
       <xs:documentation>Runtime Type: Android.Views.SurfaceView</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="SurfaceView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextureView" type="TextureView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Views.TextureView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="TextureView">
     <xs:complexContent mixed="false">
       <xs:extension base="View" />
     </xs:complexContent>
@@ -369,12 +478,14 @@
         <xs:group minOccurs="0" maxOccurs="unbounded" ref="any-view" />
         <xs:attribute ref="android:addStatesFromChildren" />
         <xs:attribute ref="android:alwaysDrawnWithCache" />
+        <xs:attribute ref="android:animateLayoutChanges" />
         <xs:attribute ref="android:animationCache" />
         <xs:attribute ref="android:clipChildren" />
         <xs:attribute ref="android:clipToPadding" />
         <xs:attribute ref="android:descendantFocusability" />
         <xs:attribute ref="android:layoutAnimation" />
         <xs:attribute ref="android:persistentDrawingCache" />
+        <xs:attribute ref="android:splitMotionEvents" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -410,7 +521,9 @@
     <xs:complexContent mixed="false">
       <xs:extension base="AdapterView">
         <xs:attribute ref="android:cacheColorHint" />
+        <xs:attribute ref="android:choiceMode" />
         <xs:attribute ref="android:drawSelectorOnTop" />
+        <xs:attribute ref="android:fastScrollAlwaysVisible" />
         <xs:attribute ref="android:fastScrollEnabled" />
         <xs:attribute ref="android:listSelector" />
         <xs:attribute ref="android:scrollingCache" />
@@ -453,6 +566,19 @@
       <xs:extension base="ViewGroup" />
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="AdapterViewFlipper" type="AdapterViewFlipper">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.AdapterViewFlipper</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AdapterViewFlipper">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AdapterViewAnimator">
+        <xs:attribute ref="android:autoStart" />
+        <xs:attribute ref="android:flipInterval" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="AnalogClock" type="AnalogClock">
     <xs:annotation>
       <xs:documentation>Runtime Type: Android.Widget.AnalogClock</xs:documentation>
@@ -475,6 +601,30 @@
   <xs:complexType name="Button">
     <xs:complexContent mixed="false">
       <xs:extension base="TextView" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarView" type="CalendarView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.CalendarView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CalendarView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="FrameLayout">
+        <xs:attribute ref="android:dateTextAppearance" />
+        <xs:attribute ref="android:firstDayOfWeek" />
+        <xs:attribute ref="android:focusedMonthDateColor" />
+        <xs:attribute ref="android:maxDate" />
+        <xs:attribute ref="android:minDate" />
+        <xs:attribute ref="android:selectedDateVerticalBar" />
+        <xs:attribute ref="android:selectedWeekBackgroundColor" />
+        <xs:attribute ref="android:showWeekNumber" />
+        <xs:attribute ref="android:shownWeekCount" />
+        <xs:attribute ref="android:unfocusedMonthDateColor" />
+        <xs:attribute ref="android:weekDayTextAppearance" />
+        <xs:attribute ref="android:weekNumberColor" />
+        <xs:attribute ref="android:weekSeparatorLineColor" />
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="CheckBox" type="CheckBox">
@@ -532,10 +682,7 @@
   </xs:element>
   <xs:complexType name="DatePicker">
     <xs:complexContent mixed="false">
-      <xs:extension base="FrameLayout">
-        <xs:attribute ref="android:endYear" />
-        <xs:attribute ref="android:startYear" />
-      </xs:extension>
+      <xs:extension base="FrameLayout" />
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DialerFilter" type="DialerFilter">
@@ -615,6 +762,24 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="GridLayout" type="GridLayout">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.GridLayout</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GridLayout">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ViewGroup">
+        <xs:attribute ref="android:alignmentMode" />
+        <xs:attribute ref="android:columnCount" />
+        <xs:attribute ref="android:columnOrderPreserved" />
+        <xs:attribute ref="android:orientation" />
+        <xs:attribute ref="android:rowCount" />
+        <xs:attribute ref="android:rowOrderPreserved" />
+        <xs:attribute ref="android:useDefaultMargins" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="GridView" type="GridView">
     <xs:annotation>
       <xs:documentation>Runtime Type: Android.Widget.GridView</xs:documentation>
@@ -673,6 +838,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="View">
         <xs:attribute ref="android:adjustViewBounds" />
+        <xs:attribute ref="android:baseline" />
         <xs:attribute ref="android:baselineAlignBottom" />
         <xs:attribute ref="android:cropToPadding" />
         <xs:attribute ref="android:maxHeight" />
@@ -693,8 +859,12 @@
       <xs:extension base="ViewGroup">
         <xs:attribute ref="android:baselineAligned" />
         <xs:attribute ref="android:baselineAlignedChildIndex" />
+        <xs:attribute ref="android:divider" />
+        <xs:attribute ref="android:dividerPadding" />
         <xs:attribute ref="android:gravity" />
+        <xs:attribute ref="android:measureWithLargestChild" />
         <xs:attribute ref="android:orientation" />
+        <xs:attribute ref="android:showDividers" />
         <xs:attribute ref="android:weightSum" />
       </xs:extension>
     </xs:complexContent>
@@ -707,12 +877,13 @@
   <xs:complexType name="ListView">
     <xs:complexContent mixed="false">
       <xs:extension base="AbsListView">
-        <xs:attribute ref="android:choiceMode" />
         <xs:attribute ref="android:divider" />
         <xs:attribute ref="android:dividerHeight" />
         <xs:attribute ref="android:entries" />
         <xs:attribute ref="android:footerDividersEnabled" />
         <xs:attribute ref="android:headerDividersEnabled" />
+        <xs:attribute ref="android:overScrollFooter" />
+        <xs:attribute ref="android:overScrollHeader" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -726,6 +897,16 @@
       <xs:extension base="AutoCompleteTextView" />
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="NumberPicker" type="NumberPicker">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.NumberPicker</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="NumberPicker">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LinearLayout" />
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="ProgressBar" type="ProgressBar">
     <xs:annotation>
       <xs:documentation>Runtime Type: Android.Widget.ProgressBar</xs:documentation>
@@ -734,6 +915,7 @@
   <xs:complexType name="ProgressBar">
     <xs:complexContent mixed="false">
       <xs:extension base="View">
+        <xs:attribute ref="android:animationResolution" />
         <xs:attribute ref="android:indeterminate" />
         <xs:attribute ref="android:indeterminateBehavior" />
         <xs:attribute ref="android:indeterminateDrawable" />
@@ -824,6 +1006,22 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="SearchView" type="SearchView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.SearchView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SearchView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LinearLayout">
+        <xs:attribute ref="android:iconifiedByDefault" />
+        <xs:attribute ref="android:imeOptions" />
+        <xs:attribute ref="android:inputType" />
+        <xs:attribute ref="android:maxWidth" />
+        <xs:attribute ref="android:queryHint" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="SeekBar" type="SeekBar">
     <xs:annotation>
       <xs:documentation>Runtime Type: Android.Widget.SeekBar</xs:documentation>
@@ -855,6 +1053,16 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="Space" type="Space">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.Space</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Space">
+    <xs:complexContent mixed="false">
+      <xs:extension base="View" />
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="Spinner" type="Spinner">
     <xs:annotation>
       <xs:documentation>Runtime Type: Android.Widget.Spinner</xs:documentation>
@@ -863,7 +1071,43 @@
   <xs:complexType name="Spinner">
     <xs:complexContent mixed="false">
       <xs:extension base="AbsSpinner">
+        <xs:attribute ref="android:dropDownHorizontalOffset" />
+        <xs:attribute ref="android:dropDownSelector" />
+        <xs:attribute ref="android:dropDownVerticalOffset" />
+        <xs:attribute ref="android:dropDownWidth" />
+        <xs:attribute ref="android:gravity" />
+        <xs:attribute ref="android:popupBackground" />
         <xs:attribute ref="android:prompt" />
+        <xs:attribute ref="android:spinnerMode" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StackView" type="StackView">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.StackView</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="StackView">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AdapterViewAnimator" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Switch" type="Switch">
+    <xs:annotation>
+      <xs:documentation>Runtime Type: Android.Widget.Switch</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Switch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="CompoundButton">
+        <xs:attribute ref="android:switchMinWidth" />
+        <xs:attribute ref="android:switchPadding" />
+        <xs:attribute ref="android:switchTextAppearance" />
+        <xs:attribute ref="android:textOff" />
+        <xs:attribute ref="android:textOn" />
+        <xs:attribute ref="android:thumb" />
+        <xs:attribute ref="android:thumbTextPadding" />
+        <xs:attribute ref="android:track" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -980,6 +1224,7 @@
   <xs:complexType name="ViewAnimator">
     <xs:complexContent mixed="false">
       <xs:extension base="FrameLayout">
+        <xs:attribute ref="android:animateFirstView" />
         <xs:attribute ref="android:inAnimation" />
         <xs:attribute ref="android:outAnimation" />
       </xs:extension>
